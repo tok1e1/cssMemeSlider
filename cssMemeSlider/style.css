@@ -9,3 +9,38 @@
   background-color: rgb(37 40 42);
   overflow: hidden;
 }
+
+.switch input {
+  display: none;
+}
+
+.controls {
+  position: static;
+  margin: 90vh 0 0 170vh;
+  display: flex;
+  gap: 20px;
+}
+.controls label {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(127 170 232);
+  border-radius: 100%;
+  cursor: pointer;
+}
+
+.switch input:nth-child(1):checked ~ .controls label:nth-child(1) {
+  background-color: rgb(37 40 42);
+  border: 2px solid rgb(127 170 232);
+}
+.switch input:nth-child(2):checked ~ .controls label:nth-child(2) {
+  background-color: rgb(37 40 42);
+  border: 2px solid rgb(127 170 232);
+}
+.switch input:nth-child(3):checked ~ .controls label:nth-child(3) {
+  background-color: rgb(37 40 42);
+  border: 2px solid rgb(127 170 232);
+}
+.switch input:nth-child(4):checked ~ .controls label:nth-child(4) {
+  background-color: rgb(37 40 42);
+  border: 2px solid rgb(127 170 232);
+}
