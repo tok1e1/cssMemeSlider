@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .container {
   width: 100%;
   height: 100vh;
@@ -15,32 +16,101 @@
 }
 
 .controls {
-  position: static;
-  margin: 90vh 0 0 170vh;
   display: flex;
   gap: 20px;
+  z-index: 10;
 }
+
 .controls label {
   width: 30px;
   height: 30px;
   background-color: rgb(127 170 232);
   border-radius: 100%;
   cursor: pointer;
+  transition: 0.5s;
 }
 
-.switch input:nth-child(1):checked ~ .controls label:nth-child(1) {
+.controls label:hover {
+  background-color: rgb(74, 134, 219);
+}
+
+.switch input:nth-child(1):checked ~ .memo .controls label:nth-child(1),
+.switch input:nth-child(2):checked ~ .memo .controls label:nth-child(2),
+.switch input:nth-child(3):checked ~ .memo .controls label:nth-child(3),
+.switch input:nth-child(4):checked ~ .memo .controls label:nth-child(4) {
   background-color: rgb(37 40 42);
   border: 2px solid rgb(127 170 232);
 }
-.switch input:nth-child(2):checked ~ .controls label:nth-child(2) {
-  background-color: rgb(37 40 42);
-  border: 2px solid rgb(127 170 232);
+
+.wrapper {
+  width: 400%;
+  display: flex;
+  transition: 0.5s;
 }
-.switch input:nth-child(3):checked ~ .controls label:nth-child(3) {
-  background-color: rgb(37 40 42);
-  border: 2px solid rgb(127 170 232);
+
+.wrapper .box {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.switch input:nth-child(4):checked ~ .controls label:nth-child(4) {
-  background-color: rgb(37 40 42);
-  border: 2px solid rgb(127 170 232);
+
+.wrapper .box:nth-child(1) {
+  background-color: red;
+}
+.wrapper .box:nth-child(2) {
+  background-color: blue;
+}
+.wrapper .box:nth-child(3) {
+  background-color: rgb(14, 14, 14);
+}
+.wrapper .box:nth-child(4) {
+  background-color: blueviolet;
+}
+
+.switch input:nth-child(1):checked ~ .wrapper {
+  margin-left: 0;
+}
+
+.switch input:nth-child(2):checked ~ .wrapper {
+  margin-left: -100%;
+}
+
+.switch input:nth-child(3):checked ~ .wrapper {
+  margin-left: -200%;
+}
+
+.switch input:nth-child(4):checked ~ .wrapper {
+  margin-left: -300%;
+}
+
+.memo {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 90px;
+}
+
+.memo-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.memo-box {
+  opacity: 0;
+  transform: translateX(1000%);
+}
+
+.switch input:nth-child(1):checked ~ .memo .memo-boxes .memo-box:nth-child(1),
+.switch input:nth-child(2):checked ~ .memo .memo-boxes .memo-box:nth-child(2),
+.switch input:nth-child(3):checked ~ .memo .memo-boxes .memo-box:nth-child(3),
+.switch input:nth-child(4):checked ~ .memo .memo-boxes .memo-box:nth-child(4) {
+  display: block;
+  opacity: 1;
+  font-size: 24px;
+  color: white;
+  transform: translateX(0%);
+  transition: opacity 0.5s, transform 0.5s;
+  order: -1;
 }
