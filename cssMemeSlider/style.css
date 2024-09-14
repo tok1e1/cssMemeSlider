@@ -1,0 +1,149 @@
+@media (min-width: 320px) {
+  .memo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 90px;
+    gap: 20px;
+  }
+  .memo-box{
+    text-align: center;
+    font-size: 18px;
+    color: white;
+  }
+
+  .memo-boxes{
+    order: 1;
+  }
+
+  .controls label{
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  .memo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 20px 90px;
+    gap: 0;
+  }
+  .memo-box{
+    text-align: left;
+    font-size: 24px;
+    color: white;
+  }
+
+  .memo-boxes{
+    order: 0;
+  }
+
+  .controls label{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(37 40 42);
+  overflow: hidden;
+}
+
+.switch input {
+  display: none;
+}
+
+.controls {
+  display: flex;
+  gap: 20px;
+  z-index: 10;
+}
+
+.controls label {
+  background-color: rgb(127 170 232);
+  border-radius: 100%;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.controls label:hover {
+  background-color: rgb(74, 134, 219);
+}
+
+.switch input:nth-child(1):checked ~ .memo .controls label:nth-child(1),
+.switch input:nth-child(2):checked ~ .memo .controls label:nth-child(2),
+.switch input:nth-child(3):checked ~ .memo .controls label:nth-child(3),
+.switch input:nth-child(4):checked ~ .memo .controls label:nth-child(4) {
+  background-color: rgb(37 40 42);
+  border: 2px solid rgb(127 170 232);
+}
+
+.wrapper {
+  width: 400%;
+  display: flex;
+  transition: 0.5s;
+}
+
+.wrapper .box {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 20px 0;
+}
+
+.switch input:nth-child(1):checked ~ .wrapper {
+  margin-left: 0;
+}
+
+.switch input:nth-child(2):checked ~ .wrapper {
+  margin-left: -100%;
+}
+
+.switch input:nth-child(3):checked ~ .wrapper {
+  margin-left: -200%;
+}
+
+.switch input:nth-child(4):checked ~ .wrapper {
+  margin-left: -300%;
+}
+
+.memo-boxes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.memo-box {
+  opacity: 0;
+  transform: translateX(1000%);
+}
+
+.switch input:nth-child(1):checked ~ .memo .memo-boxes .memo-box:nth-child(1),
+.switch input:nth-child(2):checked ~ .memo .memo-boxes .memo-box:nth-child(2),
+.switch input:nth-child(3):checked ~ .memo .memo-boxes .memo-box:nth-child(3),
+.switch input:nth-child(4):checked ~ .memo .memo-boxes .memo-box:nth-child(4) {
+  display: block;
+  opacity: 1;
+  transform: translateX(0%);
+  transition: opacity 0.5s, transform 0.5s;
+  order: -1;
+}
+
+.meme-img {
+  width: 70%;
+}
