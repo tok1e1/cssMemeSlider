@@ -3,7 +3,23 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 90px;
+    align-items: center;
+    padding: 20px 90px;
+    gap: 20px;
+  }
+  .memo-box{
+    text-align: center;
+    font-size: 18px;
+    color: white;
+  }
+
+  .memo-boxes{
+    order: 1;
+  }
+
+  .controls label{
+    width: 15px;
+    height: 15px;
   }
 }
 
@@ -12,7 +28,23 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 0 90px;
+    align-items: baseline;
+    padding: 20px 90px;
+    gap: 0;
+  }
+  .memo-box{
+    text-align: left;
+    font-size: 24px;
+    color: white;
+  }
+
+  .memo-boxes{
+    order: 0;
+  }
+
+  .controls label{
+    width: 30px;
+    height: 30px;
   }
 }
 
@@ -41,8 +73,6 @@
 }
 
 .controls label {
-  width: 30px;
-  height: 30px;
   background-color: rgb(127 170 232);
   border-radius: 100%;
   cursor: pointer;
@@ -73,7 +103,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 20px 0;
+  padding: 30px 20px 0;
 }
 
 .switch input:nth-child(1):checked ~ .wrapper {
@@ -109,8 +139,6 @@
 .switch input:nth-child(4):checked ~ .memo .memo-boxes .memo-box:nth-child(4) {
   display: block;
   opacity: 1;
-  font-size: 24px;
-  color: white;
   transform: translateX(0%);
   transition: opacity 0.5s, transform 0.5s;
   order: -1;
